@@ -7,13 +7,14 @@ body {
     line-height: 1.6;
 }
 
-#header {
+/* #header {
     text-align: center;
     padding: 20px;
-}
+} */
 
 #content {
     display: flex;
+    flex-wrap: nowrap;
     margin: 0 auto;
     padding: 20px;
     width: 80%;
@@ -26,11 +27,15 @@ body {
     width: 20%;
     padding-right: 20px;
     border-right: 1px solid #a2a9b1;
+    order: 1;
+    flex-shrink: 0;
 }
 
 #mainColumn {
     width: 80%;
     padding-left: 20px;
+    order: 2;
+    flex-grow: 1;
 }
 
 h1 {
@@ -75,9 +80,10 @@ a:hover {
 #quickFacts {
     background-color: #f8f9fa;
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 0px;
     border: 1px solid #a2a9b1;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -120,7 +126,6 @@ input[type="submit"]:hover {
     background-color: #063394;
 }
 
-/* Style for clickable h3 */
 a h3 {
     display: inline;
     color: #0645ad;
@@ -129,4 +134,56 @@ a h3 {
 
 a h3:hover {
     text-decoration: underline;
+}
+
+#threejs-container {
+    width: 100%;
+    height: 400px; 
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #content {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    #leftColumn, #mainColumn {
+        width: 100%;
+        padding: 0;
+        border: none;
+    }
+
+    #leftColumn {
+        padding-bottom: 20px;
+        border-bottom: 1px solid #a2a9b1;
+        order: 1; 
+    }
+
+    #mainColumn {
+        padding-top: 20px;
+        order: 2; 
+    }
+
+    #quickFacts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #quickFacts img {
+        max-width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.25em;
+    }
 }
